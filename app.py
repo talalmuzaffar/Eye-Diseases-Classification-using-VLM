@@ -129,14 +129,14 @@ def main():
         if uploaded_file is not None:
             # Display the uploaded image
             image = Image.open(uploaded_file)
-            st.image(image, caption="Uploaded Image", use_container_width=True)
+            st.image(image, caption="Uploaded Image", use_column_width=True)
             st.session_state.uploaded_image = image
 
     # Display chat messages
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             if "image" in message:
-                st.image(message["image"], caption="Analyzed Image", use_container_width=True)
+                st.image(message["image"], caption="Analyzed Image", use_column_width=True)
             st.write(message["content"])
 
     # Suggested questions
