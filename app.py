@@ -3,11 +3,6 @@ from PIL import Image
 import streamlit as st
 import base64
 from io import BytesIO
-import os
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
 
 # Set page configuration
 st.set_page_config(page_title="Eye Disease Analysis Assistant", layout="wide")
