@@ -3,12 +3,24 @@ from PIL import Image
 import streamlit as st
 import base64
 from io import BytesIO
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Set page configuration
 st.set_page_config(page_title="Eye Disease Analysis Assistant", layout="wide")
 
-# Hardcode the API key
-client = Groq(api_key="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")
+# Get API key from Streamlit secrets
+try:
+    api_key = st.secrets["GROQ_API_KEY"]
+except KeyError:
+    st.error("Please set GROQ_API_KEY in your Streamlit secrets")
+    st.stop()
+
+# Initialize Groq client
+client = Groq(api_key=api_key)
 
 # Initialize session states
 if "messages" not in st.session_state:
