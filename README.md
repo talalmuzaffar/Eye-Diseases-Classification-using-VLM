@@ -71,6 +71,20 @@ This application is for educational purposes only and should not be used for med
 - **Image Processing**: PIL (Python Imaging Library)
 - **Model**: llama-3.2-90b-vision-preview
 
+### Project Structure
+```
+Eye-Diseases-Classification-using-VLM/
+├── app.py                      # Streamlit entry point
+├── eye_disease_classifier/
+│   ├── __init__.py
+│   ├── client.py               # Groq client (reads GROQ_API_KEY from Streamlit secrets)
+│   ├── image_utils.py          # Image resizing and base64 encoding
+│   ├── analysis.py             # Vision model query
+│   └── ui.py                   # Sidebar upload, chat interface and session state
+├── requirements.txt
+└── README.md
+```
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
